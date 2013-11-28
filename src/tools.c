@@ -572,7 +572,7 @@ lua_State* luaG_newstate( lua_State* _from, int const _on_state_create, char con
 	// reuse alloc function from the originating state
 	void* allocUD;
 	lua_Alloc allocF = lua_getallocf( _from, &allocUD);
-	lua_State* L = luaL_newstate( allocF, allocUD);
+	lua_State* L = luaL_newstate();
 
 	if( L == NULL)
 	{
