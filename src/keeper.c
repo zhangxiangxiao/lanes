@@ -580,10 +580,10 @@ char const* init_keepers( lua_State* L)
 	GKeepers = malloc( GNbKeepers * sizeof( struct s_Keeper));
 	for( i = 0; i < GNbKeepers; ++ i)
 	{
-		lua_State* K = lua_newstate( allocF, allocUD);
+		lua_State* K = luaL_newstate();
 		if( K == NULL)
 		{
-			(void) luaL_error( L, "'lua_newstate()' failed while creating keeper state; out of memory");
+			(void) luaL_error( L, "'luaL_newstate()' failed while creating keeper state; out of memory");
 		}
 		STACK_CHECK( K);
 
